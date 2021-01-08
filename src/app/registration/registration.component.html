@@ -1,0 +1,45 @@
+<form [formGroup]="profileForm">
+
+    <label>
+        First Name:
+        <input type="text" formControlName="firstName">
+    </label>
+
+    <label>
+        Last Name:
+        <input type="text" formControlName="lastName">
+    </label>
+    <label>
+        Email:
+        <input type="text" formControlName="email">
+    </label>
+
+    <button (click)="SubmitForm()">Submit</button>
+    <button  (click)="UpdateForm()">Update</button>
+
+</form>
+
+<div style="margin-top: 3rem;">
+    <table>
+        <tr>
+            <th>Sr.No</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Edit</th>
+
+            <th>Delete</th>
+
+
+        </tr>
+        <tr *ngFor="let item of info;let i=index">
+            <td>{{i}}</td>
+            <td>{{item.firstName}}</td>
+            <td>{{item.lastName}}</td>
+            <td>{{item.email}}</td>
+            <td style="color: blue;"(click)="editUser(item)">Edit</td>
+
+            <td style="color: red;"(click)="deleteUser(item.id)">Delete</td>
+        </tr>
+    </table>
+</div>
